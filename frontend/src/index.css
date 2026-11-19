@@ -1,0 +1,757 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+  /* ========================================================
+     USER COLOR PALETTE:
+     #18191B — Dark Slate (Dark Background)
+     #3AB6FF — Electric Blue (Action Buttons)
+     #EA3546 — Sunset Red (Badges / Banners)
+     #CED4DA — Wet Foam Silver (Secondary Text)
+     #FFD166 — Active Yellow (Warning / Alerts)
+     ======================================================== */
+
+  /* Core Brand Colors */
+  --palette-dark: #18191B;
+  /* Dark Slate – main background */
+  --palette-blue: #3AB6FF;
+  /* Electric Blue – CTAs & links */
+  --palette-red: #EA3546;
+  /* Sunset Red – badges & alerts */
+  --palette-silver: #CED4DA;
+  /* Wet Foam Silver – secondary text */
+  --palette-yellow: #FFD166;
+  /* Active Yellow – warnings */
+
+  /* Derived Shades */
+  --palette-dark-2: #23262B;
+  /* Slightly lighter than dark slate */
+  --palette-dark-3: #2E3238;
+  /* Card/surface on dark */
+  --palette-blue-dim: rgba(58, 182, 255, 0.18);
+  --palette-blue-glow: rgba(58, 182, 255, 0.35);
+
+  /* Semantic Mappings */
+  --primary: #18191B;
+  --primary-light: #23262B;
+  --secondary: #2E3238;
+  --accent: #3AB6FF;
+  --accent-hover: #1a9ee8;
+  --accent-glow: rgba(58, 182, 255, 0.25);
+
+  /* Backgrounds */
+  --bg-main: #F4F6F8;
+  /* Off-white for content areas */
+  --card-bg: #FFFFFF;
+  --card-bg-dark: #23262B;
+
+  /* Typography */
+  --text-primary: #18191B;
+  --text-secondary: #4A5568;
+  --text-muted: #718096;
+  --text-on-dark: #F0F4F8;
+
+  /* Borders */
+  --border-color: #E2E8F0;
+  --border-strong: #CBD5E0;
+  --border-accent: #3AB6FF;
+
+  /* Feedback */
+  --success: #22C55E;
+  --warning: #FFD166;
+  --danger: #EA3546;
+  --info: #3AB6FF;
+
+  /* Radius & Shadows */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 4px 14px rgba(24, 25, 27, 0.07);
+  --shadow-md: 0 10px 30px rgba(24, 25, 27, 0.12);
+  --shadow-lg: 0 20px 50px rgba(24, 25, 27, 0.18);
+  --shadow-blue: 0 10px 30px rgba(58, 182, 255, 0.28);
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.scw-body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.brand-font {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+/* Ensure headings in dark sections and hero are ALWAYS crisp light cream / white */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.hero-section h4,
+.hero-section .hero-title,
+.bg-scw-dark h1,
+.bg-scw-dark h2,
+.bg-scw-dark h3,
+.bg-scw-dark h4,
+.bg-scw-dark .section-title,
+.scw-footer h1,
+.scw-footer h2,
+.scw-footer h3,
+.scw-footer h4,
+.scw-footer h5,
+.scw-footer h6,
+.dashboard-banner h1,
+.dashboard-banner h2,
+.dashboard-banner h3,
+.text-white,
+.text-white h1,
+.text-white h2,
+.text-white h3,
+.text-white .section-title {
+  color: #FAF8F2 !important;
+}
+
+/* Hero section specific text rules */
+.hero-section {
+  color: #FAF8F2 !important;
+}
+
+.hero-title {
+  color: #FAF8F2 !important;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.hero-highlight {
+  color: #3AB6FF !important;
+  text-shadow: 0 0 32px rgba(58, 182, 255, 0.45);
+}
+
+.hero-description {
+  color: #CED4DA !important;
+  opacity: 0.95 !important;
+  line-height: 1.7;
+}
+
+.hero-badge-text {
+  color: #F0F4F8 !important;
+  font-weight: 700;
+}
+
+/* Dedicated High-Visibility Hero Buttons */
+.btn-hero-primary {
+  background: #3AB6FF !important;
+  color: #18191B !important;
+  font-weight: 800 !important;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.8rem !important;
+  border-radius: 30px !important;
+  border: 2px solid #3AB6FF !important;
+  box-shadow: 0 10px 30px rgba(58, 182, 255, 0.35) !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-hero-primary:hover {
+  background: #1a9ee8 !important;
+  border-color: #1a9ee8 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(58, 182, 255, 0.5) !important;
+}
+
+.btn-hero-secondary {
+  background: rgba(24, 25, 27, 0.55) !important;
+  color: #F0F4F8 !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem;
+  padding: 0.85rem 1.8rem !important;
+  border-radius: 30px !important;
+  border: 2px solid #CED4DA !important;
+  backdrop-filter: blur(8px);
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-hero-secondary:hover {
+  background: #CED4DA !important;
+  color: #18191B !important;
+  transform: translateY(-2px);
+}
+
+/* Proper generous section vertical spacing */
+.py-section {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+@media (min-width: 992px) {
+  .py-section {
+    padding-top: 6.5rem !important;
+    padding-bottom: 6.5rem !important;
+  }
+}
+
+.py-section-lg {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+}
+
+@media (min-width: 992px) {
+  .py-section-lg {
+    padding-top: 8rem !important;
+    padding-bottom: 8rem !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #23262B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3AB6FF;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1a9ee8;
+}
+
+/* Premium Card Styles */
+.scw-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.scw-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-accent);
+}
+
+.scw-card-interactive {
+  cursor: pointer;
+}
+
+.scw-card-interactive:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--palette-stone);
+}
+
+/* ========================================================
+   PROPER SECTION UTILITIES (ALTERNATING BANDS)
+   ======================================================== */
+.bg-scw-soft {
+  background-color: #F4F6F8 !important;
+}
+
+.bg-scw-cream {
+  background-color: #EEF2F7 !important;
+}
+
+.bg-scw-sand {
+  background-color: #E8ECF2 !important;
+}
+
+.bg-scw-dune {
+  background-color: #DDE3EC !important;
+}
+
+.bg-scw-stone {
+  background-color: #CED4DA !important;
+}
+
+.bg-scw-dark {
+  background-color: #18191B !important;
+  color: #F0F4F8;
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--border-color);
+  width: 100%;
+}
+
+/* ========================================================
+   HIGH CONTRAST & VISIBLE BUTTONS PALETTE
+   ======================================================== */
+
+/* Primary CTA Button – Electric Blue */
+.btn-scw-primary {
+  background: #3AB6FF !important;
+  color: #18191B !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.6rem !important;
+  border-radius: 30px !important;
+  border: 1.5px solid #3AB6FF !important;
+  box-shadow: 0 8px 24px rgba(58, 182, 255, 0.28) !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-scw-primary:hover {
+  background: #1a9ee8 !important;
+  color: #fff !important;
+  border-color: #1a9ee8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(58, 182, 255, 0.45) !important;
+}
+
+/* Secondary Button – Dark Slate with Silver border */
+.btn-scw-secondary {
+  background: #18191B !important;
+  color: #F0F4F8 !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.6rem !important;
+  border-radius: 30px !important;
+  border: 1.5px solid #CED4DA !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-scw-secondary:hover {
+  background: #23262B !important;
+  color: #3AB6FF !important;
+  border-color: #3AB6FF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(58, 182, 255, 0.2) !important;
+}
+
+/* Accent Button – Sunset Red for badges / alerts */
+.btn-scw-accent {
+  background: #EA3546 !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  padding: 0.75rem 1.6rem !important;
+  border-radius: 30px !important;
+  border: 1.5px solid #c82030 !important;
+  box-shadow: 0 8px 20px rgba(234, 53, 70, 0.3) !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-scw-accent:hover {
+  background: #c82030 !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(234, 53, 70, 0.45) !important;
+}
+
+/* Light Outline Button – for dark backgrounds (Navbar & Hero) */
+.btn-scw-outline-light {
+  background: transparent !important;
+  color: #F0F4F8 !important;
+  font-weight: 600 !important;
+  padding: 0.65rem 1.4rem !important;
+  border-radius: 30px !important;
+  border: 2px solid #CED4DA !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-scw-outline-light:hover {
+  background: #CED4DA !important;
+  border-color: #CED4DA !important;
+  color: #18191B !important;
+  transform: translateY(-2px);
+}
+
+/* Dark Outline Button – for light cards */
+.btn-scw-outline-dark {
+  background: transparent !important;
+  color: #18191B !important;
+  font-weight: 700 !important;
+  padding: 0.65rem 1.4rem !important;
+  border-radius: 30px !important;
+  border: 2px solid #18191B !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-scw-outline-dark:hover {
+  background: #18191B !important;
+  color: #F0F4F8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(24, 25, 27, 0.2) !important;
+}
+
+/* Default scw-outline */
+.btn-scw-outline {
+  background: #FFFFFF !important;
+  color: #18191B !important;
+  font-weight: 700 !important;
+  padding: 0.65rem 1.4rem !important;
+  border-radius: 30px !important;
+  border: 2px solid #18191B !important;
+  transition: var(--transition) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.btn-scw-outline:hover {
+  background: #18191B !important;
+  color: #F0F4F8 !important;
+  transform: translateY(-2px);
+}
+
+/* High-contrast Category Filter Pills */
+.filter-pill {
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 30px;
+  border: 1.5px solid #CED4DA;
+  background: #FFFFFF;
+  color: #4A5568;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.filter-pill:hover {
+  border-color: #3AB6FF;
+  color: #18191B;
+  background: #F4F6F8;
+}
+
+.filter-pill.active {
+  background: #3AB6FF !important;
+  color: #18191B !important;
+  border-color: #3AB6FF !important;
+  box-shadow: 0 6px 18px rgba(58, 182, 255, 0.3);
+}
+
+/* Slot Selection */
+.scw-slot-btn {
+  background: #FFFFFF !important;
+  color: #18191B !important;
+  border: 1.5px solid #CED4DA !important;
+  border-radius: 12px !important;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.scw-slot-btn:hover:not(:disabled) {
+  border-color: #3AB6FF !important;
+  background: #F4F6F8 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(58, 182, 255, 0.15);
+}
+
+.scw-slot-btn.active {
+  background: #3AB6FF !important;
+  color: #18191B !important;
+  border-color: #3AB6FF !important;
+  box-shadow: 0 6px 20px rgba(58, 182, 255, 0.35) !important;
+}
+
+.scw-slot-btn.disabled,
+.scw-slot-btn:disabled {
+  background: #E2E8F0 !important;
+  color: #A0AEC0 !important;
+  border-color: #E2E8F0 !important;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Stepper Progress Bar Circles */
+.step-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #E2E8F0;
+  color: #4A5568;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.step-circle.active {
+  background: #3AB6FF;
+  color: #18191B;
+  border: 2px solid #1a9ee8;
+  box-shadow: 0 0 15px rgba(58, 182, 255, 0.4);
+}
+
+.step-circle.done {
+  background: #18191B;
+  color: #3AB6FF;
+}
+
+/* Selected Card Highlight */
+.selected-card {
+  border: 2px solid #3AB6FF !important;
+  background: #F0F9FF !important;
+  box-shadow: 0 10px 25px rgba(58, 182, 255, 0.2) !important;
+}
+
+/* Confirmation Circle */
+.confirmation-icon-circle {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(58, 182, 255, 0.12);
+  border: 2px solid #3AB6FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(58, 182, 255, 0.3);
+}
+
+/* High Contrast Override for Bootstrap Outline Buttons */
+.btn-outline-secondary {
+  color: #18191B !important;
+  border-color: #CED4DA !important;
+  background: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.btn-outline-secondary:hover {
+  background: #18191B !important;
+  color: #F0F4F8 !important;
+  border-color: #18191B !important;
+}
+
+.btn-outline-primary {
+  color: #3AB6FF !important;
+  border-color: #3AB6FF !important;
+  background: #FFFFFF !important;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background: #3AB6FF !important;
+  color: #18191B !important;
+}
+
+/* Badges */
+.badge-scw-accent {
+  background: rgba(58, 182, 255, 0.12);
+  color: #3AB6FF;
+  border: 1px solid rgba(58, 182, 255, 0.35);
+  font-weight: 800;
+  padding: 0.45rem 1rem;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Automotive License Plate */
+.license-plate {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Outfit', monospace;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  background: #FFFDF9;
+  color: #1C1915;
+  border: 2px solid #1C1915;
+  border-radius: 6px;
+  padding: 3px 12px;
+  box-shadow: 0 2px 4px rgba(28, 25, 21, 0.08);
+}
+
+.license-plate::before {
+  content: 'IND';
+  font-size: 0.6rem;
+  color: #9E7431;
+  font-weight: 900;
+  margin-right: 8px;
+  border-right: 1.5px solid var(--palette-dune);
+  padding-right: 5px;
+}
+
+/* Section Headlines */
+.section-tag {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #3AB6FF;
+  background: rgba(58, 182, 255, 0.1);
+  border: 1.5px solid rgba(58, 182, 255, 0.3);
+  padding: 0.5rem 1.3rem;
+  border-radius: 30px;
+  margin-bottom: 1.2rem;
+}
+
+.section-title {
+  font-size: 2.85rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* Form inputs */
+.scw-input {
+  border-radius: 12px;
+  border: 1.5px solid #CED4DA;
+  padding: 0.85rem 1.1rem;
+  font-size: 1rem;
+  transition: var(--transition);
+  background-color: #FFFFFF;
+  color: #18191B;
+}
+
+.scw-input:focus {
+  border-color: #3AB6FF;
+  box-shadow: 0 0 0 4px rgba(58, 182, 255, 0.18);
+  outline: none;
+}
+
+/* Toast Container */
+.scw-toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.scw-toast {
+  pointer-events: auto;
+  min-width: 320px;
+  max-width: 440px;
+  background: #18191B;
+  color: #F0F4F8;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 35px rgba(24, 25, 27, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-left: 5px solid #3AB6FF;
+  animation: slideIn 0.3s ease-out;
+}
+
+.scw-toast.toast-success {
+  border-left-color: #22C55E;
+}
+
+.scw-toast.toast-danger {
+  border-left-color: #EA3546;
+}
+
+.scw-toast.toast-warning {
+  border-left-color: #FFD166;
+}
+
+.scw-toast.toast-info {
+  border-left-color: #3AB6FF;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Skeleton loader */
+.skeleton-box {
+  background: linear-gradient(90deg, #E2E8F0 25%, #F4F6F8 50%, #E2E8F0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "smart-car-wash",
+  "version": "1.0.0",
+  "description": "Smart Car Wash - Full-Stack Online Car Wash Booking System (React + Express + MongoDB)",
+  "scripts": {
+    "dev": "node dev.js",
+    "start": "node dev.js",
+    "seed": "cd backend && npm run seed",
+    "start:backend": "cd backend && npm run dev",
+    "start:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "car-wash",
+    "booking-system",
+    "react",
+    "express",
+    "mongodb",
+    "rest-api"
+  ],
+  "author": "Smart Car Wash Engineering Team",
+  "license": "MIT"
+}
