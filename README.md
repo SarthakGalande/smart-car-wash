@@ -212,3 +212,12 @@ npm run dev
 - User account directory with one-click suspension / activation toggle.
 - Catalog management: add, edit, or delete services and pricing packages.
 - Revenue trends analytics bar charts and vehicle category distribution.
+
+---
+
+## 👥 Contributors & Team
+
+* **Sarthak Galande** — Project Lead ([@SarthakGalande](https://github.com/SarthakGalande))
+* **Avishkar Bhapkar** — Contributor (`bhapkaravishkar2006@gmail.com`)
+* **Darshan Indore** — Contributor (`darshanindore999@gmail.com`)
+
