@@ -10,7 +10,7 @@ export const ProtectedRoute = ({ children, requireAdmin = false }) => {
     return (
       <div className="min-vh-100 d-flex align-items-center justify-content-center bg-light">
         <div className="spinner-border text-primary" role="status">
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
       </div>
     );

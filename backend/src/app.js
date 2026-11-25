@@ -22,11 +22,16 @@ const adminRoutes = require('./routes/adminRoutes');
 
 const app = express();
 
+// Trust reverse proxy (essential for Vercel and correct client IP rate limiting)
+app.set('trust proxy', 1);
+
 // Security HTTP headers
 app.use(helmet());
 
 // CORS configuration
 const allowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
   'http://localhost:4200',
   'http://127.0.0.1:4200',
   process.env.CLIENT_URL
@@ -35,8 +40,13 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps, curl, or same origin)
-      if (!origin || allowedOrigins.includes(origin) || process.env.NODE_ENV !== 'production') {
+      // Allow requests with no origin, matched origins, development mode, or any *.vercel.app domain
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        process.env.NODE_ENV !== 'production' ||
+        (origin && origin.endsWith('.vercel.app'))
+      ) {
         callback(null, true);
       } else {
         callback(new Error('Blocked by CORS policy'));
@@ -61,6 +71,17 @@ const mongoose = require('mongoose');
 
 // Global Rate Limiting
 app.use('/api', apiLimiter);
+
+// API Root / Info
+app.get('/api', (req, res) => {
+  res.status(200).json({
+    success: true,
+    service: 'Smart Car Wash REST API',
+    status: 'ONLINE',
+    database: mongoose.connection.readyState === 1 ? 'CONNECTED' : 'DISCONNECTED',
+    version: '1.0.0'
+  });
+});
 
 // API Health Check
 app.get('/api/health', (req, res) => {
