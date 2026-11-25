@@ -1,7 +1,9 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api',
+  // In production on Vercel: /api is publicly routed to the backend service on the same domain.
+  // In local dev: Vite proxy in vite.config.js forwards /api to localhost:5000.
+  baseURL: '/api',
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json'
